@@ -1,0 +1,60 @@
+<ion-content>
+    
+    <div class="container">
+        <img src="assets/logo.png">
+    </div>
+
+    <ion-slides>
+        <ion-slide>
+            <div class="slide-inner ion-padding">
+                <div class="login-titulo">
+                    <span>Login</span>
+                </div>
+                <ion-item>
+                    <ion-label position="floating">E-mail</ion-label>
+                    <ion-input type="email"></ion-input>
+                    <ion-icon name="mail" slot="start" color="secondary"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Senha</ion-label>
+                    <ion-input type="password"></ion-input>
+                    <ion-icon slot="start" name="key" color="secondary"></ion-icon>
+                </ion-item>
+
+                <div class="buttons">
+                    <ion-button expand="block">Entrar</ion-button>
+                    <ion-button expand="block" fill="outline" (click)="registrar()">Registrar</ion-button>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="slide-inner ion-padding">
+                <div class="login-titulo">
+                    <span>Cadastro</span>
+                </div>
+                <ion-item>
+                    <ion-label position="floating">Nome</ion-label>
+                    <ion-input type="text"></ion-input>
+                    <ion-icon name="person" slot="start" color="secondary"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">E-mail</ion-label>
+                    <ion-input type="email"></ion-input>
+                    <ion-icon name="mail" slot="start" color="secondary"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Senha</ion-label>
+                    <ion-input type="password"></ion-input>
+                    <ion-icon slot="start" name="key" color="secondary"></ion-icon>
+                </ion-item>
+
+                <div class="buttons">
+                    <ion-button expand="block">Salvar</ion-button>
+                    <ion-button expand="block" fill="outline" (click)="cancelar()">Cancelar</ion-button>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>
