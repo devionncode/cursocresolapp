@@ -1,60 +1,72 @@
-<ion-content>
-    
-    <div class="container">
-        <img src="assets/logo.png">
-    </div>
+<ion-content class="swiper-no-swiping">
 
-    <ion-slides>
-        <ion-slide>
-            <div class="slide-inner ion-padding">
-                <div class="login-titulo">
-                    <span>Login</span>
-                </div>
-                <ion-item>
-                    <ion-label position="floating">E-mail</ion-label>
-                    <ion-input type="email"></ion-input>
-                    <ion-icon name="mail" slot="start" color="secondary"></ion-icon>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">Senha</ion-label>
-                    <ion-input type="password"></ion-input>
-                    <ion-icon slot="start" name="key" color="secondary"></ion-icon>
-                </ion-item>
+  <div class="imagem">
+    <img src="assets/logo.png">
+  </div>
 
-                <div class="buttons">
-                    <ion-button expand="block">Entrar</ion-button>
-                    <ion-button expand="block" fill="outline" (click)="registrar()">Registrar</ion-button>
-                </div>
-            </div>
-        </ion-slide>
+  <ion-slides>
+    <!-- <ion-slides #meuSlides> -->
 
-        <ion-slide>
-            <div class="slide-inner ion-padding">
-                <div class="login-titulo">
-                    <span>Cadastro</span>
-                </div>
-                <ion-item>
-                    <ion-label position="floating">Nome</ion-label>
-                    <ion-input type="text"></ion-input>
-                    <ion-icon name="person" slot="start" color="secondary"></ion-icon>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">E-mail</ion-label>
-                    <ion-input type="email"></ion-input>
-                    <ion-icon name="mail" slot="start" color="secondary"></ion-icon>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">Senha</ion-label>
-                    <ion-input type="password"></ion-input>
-                    <ion-icon slot="start" name="key" color="secondary"></ion-icon>
-                </ion-item>
+    <!-- SLIDE 1 -->
+    <ion-slide>
 
-                <div class="buttons">
-                    <ion-button expand="block">Salvar</ion-button>
-                    <ion-button expand="block" fill="outline" (click)="cancelar()">Cancelar</ion-button>
-                </div>
-            </div>
-        </ion-slide>
-    </ion-slides>
+      <div class="slide-inner">
+        <div class="titulo-login">
+          <span>Login</span>
+        </div>
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+          <ion-icon name="mail" slot="start" color="secondary"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" [(ngModel)]="senha"></ion-input>
+          <ion-icon name="key" slot="start" color="secondary"></ion-icon>
+        </ion-item>
+
+        <div class="botoes">
+          <ion-button expand="block" [disabled]="!email || !senha" (click)="entrar()">Entrar</ion-button>
+          <ion-button expand="block" fill="outline" (click)="registrar()">Registrar</ion-button>
+        </div>
+      </div>
+
+    </ion-slide>
+
+    <!-- SLIDE 2 -->
+    <ion-slide>
+
+      <div class="slide-inner">
+        <form [formGroup]="formCadastro" (ngSubmit)="salvar()">
+
+          <div class="titulo-login">
+            <span>Cadastro</span>
+          </div>
+          <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input type="text" formControlName="nome"></ion-input>
+            <ion-icon name="person" slot="start" color="secondary"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+            <ion-icon name="mail" slot="start" color="secondary"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input type="password" formControlName="senha"></ion-input>
+            <ion-icon name="key" slot="start" color="secondary"></ion-icon>
+          </ion-item>
+
+          <div class="botoes">
+            <ion-button type="submit" expand="block" [disabled]="!formCadastro.valid">Salvar</ion-button>
+            <ion-button expand="block" fill="outline" (click)="cancelar()">Cancelar</ion-button>
+          </div>
+        </form>
+      </div>
+
+    </ion-slide>
+
+  </ion-slides>
 
 </ion-content>
